@@ -11,12 +11,16 @@ class Enemy:
         self.x1 = x1
         self.y1 = y1
         self.x2 = x2
-        self.y2 = x2
-
+        self.y2 = y2
 
     def render(self, window):
         window.blit(self.texture, (self.hit_box.x, self.hit_box.y))
 
+
     def move(self):
         self.hit_box.x += self.speed
         self.hit_box.y += self.speed
+        if self.hit_box.x > self.x2 and self.hit_box.y > self.y2:
+            self.speed *= -1
+        if self.hit_box.x > self.x1 and self.hit_box.y > self.y1:
+            self.speed *= -1
