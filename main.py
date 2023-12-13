@@ -9,6 +9,7 @@ pygame.init()
 pygame.mixer.init()
 pygame.mixer.music.load("jungles.ogg")
 pygame.mixer.music.play(-1)
+pygame.mixer
 
 window = pygame.display.set_mode((800, 500))
 fps = pygame.time.Clock()
@@ -34,6 +35,11 @@ while game:
 
     pacman.move()
     cyborg.move()
+    for wall in walls:
+        if pacman .hit_box.colliderect(wall.rect):
+            game = False
+
+
 
 
 
@@ -43,6 +49,8 @@ while game:
     cyborg.render(window)
     gold.render(window)
     for wall in walls:
-         wall.render(window)
+        if pacman .hit_box.colliderect(wall.rect):
+            game = False
+        wall.render(window)
     pygame.display.flip()
     fps.tick(60)
